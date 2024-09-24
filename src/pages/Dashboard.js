@@ -13,9 +13,9 @@ const Dashboard = () => {
   };
 
   const projects = [
-    { id: 1, name: 'Sisyphus', url: 'sisyphus.com', date: '22 Jan 2022', tags: ['Active', 'Customer data', 'Admin'] },
-    { id: 2, name: 'Sisyphus', url: 'sisyphus.com', date: '20 Jan 2022', tags: ['Active', 'Customer data', 'Admin'] },
-    { id: 3, name: 'Project Z', url: 'projectz.com', date: '18 Jan 2022', tags: ['Inactive', 'Admin'] },
+    { id: 1, name: 'SisyphusA', url: 'sisyphus.com', date: '22 Jan 2022', tags: ['Active', 'Customer data', 'Admin'] },
+    { id: 2, name: 'SisyphusB', url: 'sisyphus.com', date: '20 Jan 2022', tags: ['Active', 'Customer data', 'Admin'] },
+    { id: 3, name: 'Project Z', url: 'projectz.com', date: '18 Jan 2022', tags: ['Active', 'Customer data', 'Admin'] },
   ];
 
   const totalPages = Math.ceil(projects.length / projectsPerPage);
