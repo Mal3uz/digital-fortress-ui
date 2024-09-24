@@ -1,0 +1,176 @@
+.login-container {
+    display: flex;
+    background-color: #1a1a1a;
+    height: 100vh;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+    &>.login-form {
+        padding: 40px;
+        width: 50%;
+        background-color: #202020;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &>h2 {
+            margin-bottom: 20px;
+
+            &>.text-white {
+                color: #ffffff;
+            }
+
+            &>.linear-text-gradient {
+                background: linear-gradient(#4D62E5, #87DDEE, #B6F09C);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+        }
+
+        &>p {
+            margin-bottom: 40px;
+            color: #8f8f8f;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        &>form {
+            display: block;
+
+            &>.input-wrapper {
+                position: relative;
+                width: 92%;
+                margin-bottom: 12px;
+
+                &>.icon {
+                    position: absolute;
+                    top: 50%;
+                    left: 10px;
+                    transform: translateY(-50%);
+                }
+
+                &>.pass-icon {
+                    background-image: url('../assets/icons/pass.svg');
+                    width: 16px;
+                    height: 18px;
+                }
+
+                &>.mail-icon {
+                    background-image: url('../assets/icons/mail.svg');
+                    width: 20px;
+                    height: 16px;
+                }
+
+                &>.input-field {
+                    width: 100%;
+                    padding: 12px 12px 12px 40px;
+                    border: 1px solid #333;
+                    border-radius: 4px;
+                    background-color: #333;
+                    color: white;
+                    font-size: 16px;
+                }
+
+                &>.input-field::placeholder {
+                    color: #bbb;
+                }
+            }
+
+            &>.login-options {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+                width: 100%;
+                color: #8f8f8f;
+
+                &>label {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    &>input {
+                        width: 24px;
+                        height: 24px;
+                    }
+
+                    &>span {
+                        color: #CDCECF;
+                        margin-bottom: 5px;
+                    }
+                }
+
+                &>.text-gradient-green {
+                    font-weight: 600;
+                    font-size: 16px;
+                    background: linear-gradient(#82DBF7, #B6F09C);
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    color: transparent;
+                }
+            }
+
+            &>.login-button {
+                padding: 10px;
+                background-color: #B6F09C;
+                border: none;
+                border-radius: 5px;
+                color: #202020;
+                font-weight: bold;
+                cursor: pointer;
+                width: 100%;
+            }
+        }
+
+        &>.signup-link {
+            margin-top: 20px;
+            color: #8f8f8f;
+            text-align: center;
+
+            &>a {
+                font-weight: 600;
+                font-size: 16px;
+                background: linear-gradient(#82DBF7, #B6F09C);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                text-decoration: none;
+            }
+        }
+    }
+
+    &>.login-info {
+        background-image: url('../assets/images/Illustration.png');
+        background-size: cover;
+        background-position: center;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        padding: 40px;
+
+        &>blockquote {
+            font-weight: 600;
+            font-size: 32px;
+
+            &>p {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+
+
+            &>.person-name {
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            &>.person-detail {
+                width: 500;
+                font-size: 14px;
+                color: #B6F09C;
+            }
+        }
+    }
+
+}
