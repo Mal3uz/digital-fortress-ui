@@ -83,8 +83,8 @@ const Dashboard = () => {
                     ))}
                   </td>
                   <td>
-                    <button className="action-btn edit-btn icon-edit"></button>
-                    <button className="action-btn delete-btn icon-delete"></button>
+                  <button className="action-btn edit-btn" onClick={() =>  {}}></button>
+                  <button className="action-btn delete-btn"  onClick={() =>  {}}></button>
                   </td>
                 </tr>
               ))}

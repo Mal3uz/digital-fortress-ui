@@ -2,6 +2,49 @@
   display: flex;
   height: 100vh;
 
+  .sidebar {
+    width: 250px;
+    background-color: #1a1a1a;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: width 0.3s ease;
+
+    &.collapsed {
+      width: 80px;
+      padding: 20px 10px;
+    }
+
+    .logo {
+      color: #6ae8a3;
+      font-size: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      cursor: pointer;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+
+      .menu-item {
+        color: #8f8f8f;
+        padding: 10px 0;
+        text-decoration: none;
+        transition: color 0.2s ease;
+        text-align: left;
+
+        &.hover,
+        &.active {
+          color: #6ae8a3;
+        }
+      }
+    }
+  }
+
   .main-content {
     flex-grow: 1;
     background-color: #202020;
@@ -60,22 +103,14 @@
         width: 100%;
         border-collapse: collapse;
 
-        thead {
-          th {
-            text-align: left;
-            padding: 10px;
-            color: #8f8f8f;
-          }
+        thead th {
+          text-align: left;
+          padding: 10px;
+          color: #8f8f8f;
         }
 
-        tbody {
-          td {
-            padding: 15px;
-          }
-
-          tr {
-            border-bottom: 1px solid #2e2e2e;
-          }
+        tbody td {
+          padding: 15px;
 
           .project-info {
             display: flex;
@@ -103,6 +138,13 @@
             color: #6F767E;
           }
 
+          .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+          }
+
           .tag {
             background-color: #8f8f8f;
             padding: 3px 7px;
@@ -119,11 +161,16 @@
             padding: 5px;
 
             &.edit-btn {
-              color: #6ae8a3;
+              background-image: url('../assets/icons/edit.svg');
+              background-size: contain;
+              width: 20px;
+              height: 20px;
             }
 
             &.delete-btn {
-              color: #e57373;
+              background-image: url('../assets/icons/trash.svg');
+              width: 20px;
+              height: 20px;
             }
           }
         }
@@ -145,59 +192,6 @@
 
         .number-page {
           color: #6F767E;
-        }
-      }
-    }
-  }
-
-  .sidebar {
-    width: 250px;
-    background-color: #1a1a1a;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: width 0.3s ease;
-
-    &.collapsed {
-      width: 80px;
-      padding: 20px 10px;
-    }
-
-    .logo {
-      color: #6ae8a3;
-      font-size: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
-      cursor: pointer;
-
-      .logo-company {
-        background-image: url('../assets/images/Group.png');
-        width: 120px;
-        height: 32px;
-      }
-    }
-
-    .menu {
-      display: flex;
-      flex-direction: column;
-
-      .menu-item {
-        color: #8f8f8f;
-        padding: 10px 0;
-        text-decoration: none;
-        transition: color 0.2s ease;
-        text-align: left;
-
-        &.active,
-        &:hover {
-          color: #6ae8a3;
-        }
-
-        &.collapsed {
-          text-align: center;
         }
       }
     }
