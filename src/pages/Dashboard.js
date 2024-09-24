@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import '../styles/Dashboard.scss';
 import { FiSearch, FiBell, FiSettings } from 'react-icons/fi';
-import Sidebar from '../components/Sidebar';  // Import Sidebar
+import Sidebar from '../components/Sidebar';
 
 const Dashboard = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const projectsPerPage = 1;
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
@@ -13,11 +15,30 @@ const Dashboard = () => {
   const projects = [
     { id: 1, name: 'Sisyphus', url: 'sisyphus.com', date: '22 Jan 2022', tags: ['Active', 'Customer data', 'Admin'] },
     { id: 2, name: 'Sisyphus', url: 'sisyphus.com', date: '20 Jan 2022', tags: ['Active', 'Customer data', 'Admin'] },
+    { id: 3, name: 'Project Z', url: 'projectz.com', date: '18 Jan 2022', tags: ['Inactive', 'Admin'] },
   ];
+
+  const totalPages = Math.ceil(projects.length / projectsPerPage);
+
+  const handleNextClick = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePreviousClick = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const indexOfLastProject = currentPage * projectsPerPage;
+  const indexOfFirstProject = indexOfLastProject - projectsPerPage;
+  const currentProjects = projects.slice(indexOfFirstProject, indexOfLastProject);
 
   return (
     <div className="dashboard-container">
-      <Sidebar isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} /> {/* Use Sidebar */}
+      <Sidebar isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} />
 
       <div className="main-content">
         <div className="top-bar">
@@ -44,7 +65,7 @@ const Dashboard = () => {
               </tr>
             </thead>
             <tbody>
-              {projects.map((project) => (
+              {currentProjects.map((project) => (
                 <tr key={project.id}>
                   <td>
                     <div className="project-info">
@@ -57,7 +78,6 @@ const Dashboard = () => {
                   </td>
                   <td className="project-date">{project.date}</td>
                   <td>
-                    <span>{project.status}</span>
                     {project.tags.map((tag, idx) => (
                       <span key={idx} className="tag">{tag}</span>
                     ))}
@@ -72,9 +92,23 @@ const Dashboard = () => {
           </table>
 
           <div className="pagination">
-            <button className="pagination-btn">Previous</button>
-            <span className="number-page">Page 1 of 10</span>
-            <button className="pagination-btn">Next</button>
+            <button
+              className="pagination-btn"
+              onClick={handlePreviousClick}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </button>
+            <span className="number-page">
+              Page {currentPage} of {totalPages}
+            </span>
+            <button
+              className="pagination-btn"
+              onClick={handleNextClick}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
           </div>
         </div>
       </div>
