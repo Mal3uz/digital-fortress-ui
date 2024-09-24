@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/Dashboard.scss';
-
-import { FiSearch, FiBell, FiSettings, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { FiSearch, FiBell, FiSettings } from 'react-icons/fi';
+import Sidebar from '../components/Sidebar';  // Import Sidebar
 
 const Dashboard = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -11,31 +11,13 @@ const Dashboard = () => {
   };
 
   const projects = [
-    { id: 1, name: 'Sisyphus', url: 'sisyphus.com', date: '22 Jan 2022', tags: ['Active','Customer data', 'Admin'] },
-    { id: 2, name: 'Sisyphus', url: 'sisyphus.com', date: '20 Jan 2022', tags: ['Active','Customer data', 'Admin'] },
+    { id: 1, name: 'Sisyphus', url: 'sisyphus.com', date: '22 Jan 2022', tags: ['Active', 'Customer data', 'Admin'] },
+    { id: 2, name: 'Sisyphus', url: 'sisyphus.com', date: '20 Jan 2022', tags: ['Active', 'Customer data', 'Admin'] },
   ];
 
   return (
     <div className="dashboard-container">
-      <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
-        <div className="logo">
-          {isCollapsed ? (
-            <FiChevronRight size={20} onClick={toggleSidebar} />
-          ) : (
-            <>
-            <div className="logo-company"></div>
-              <FiChevronLeft size={20} onClick={toggleSidebar} />
-            </>
-          )}
-        </div>
-        <nav className="menu">
-          <a href="/" className="menu-item active">Dashboard</a>
-          <a href="/" className="menu-item">Task</a>
-          <a href="/" className="menu-item">Projects</a>
-          <a href="/" className="menu-item">Schedule</a>
-        </nav>
-      </aside>
-
+      <Sidebar isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} /> {/* Use Sidebar */}
 
       <div className="main-content">
         <div className="top-bar">
@@ -51,7 +33,7 @@ const Dashboard = () => {
         </div>
 
         <div className="dashboard-table">
-          <h2 >Dashboard</h2>
+          <h2>Dashboard</h2>
           <table>
             <thead>
               <tr>
@@ -75,7 +57,7 @@ const Dashboard = () => {
                   </td>
                   <td className="project-date">{project.date}</td>
                   <td>
-                    <span >{project.status}</span>
+                    <span>{project.status}</span>
                     {project.tags.map((tag, idx) => (
                       <span key={idx} className="tag">{tag}</span>
                     ))}
@@ -88,7 +70,7 @@ const Dashboard = () => {
               ))}
             </tbody>
           </table>
-          
+
           <div className="pagination">
             <button className="pagination-btn">Previous</button>
             <span className="number-page">Page 1 of 10</span>
